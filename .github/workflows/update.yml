@@ -2,7 +2,7 @@ name: Update Job
 
 on:
   schedule: 
-    - cron: '0 */6 * * *'
+    - cron: '0 15 * * *'
 
 jobs:
   run:
@@ -27,4 +27,4 @@ jobs:
       env:
         GH_USERNAME: SagnikPradhan
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        GIST_ID: 8d626fad02c4d5627cdfb94c4a7c6404
+        GIST_ID: f17a826743eabec7a130460108d25e23
