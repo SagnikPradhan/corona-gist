@@ -2,7 +2,7 @@
 
 Pin a gist to your profile which gives you latest updates about COVID-19 🦠
 
-![Screenshot](./screenshot.png)
+![Screenshot](./Screenshot.PNG)
 
 ## Installation
 
