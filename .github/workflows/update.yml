@@ -1,0 +1,30 @@
+name: Update Job
+
+on:
+  schedule: 
+    - cron: '0 */6 * * *'
+
+jobs:
+  run:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Run script
+      run: python main.py
+      env:
+        GH_USERNAME: SagnikPradhan
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GIST_ID: 8d626fad02c4d5627cdfb94c4a7c6404
