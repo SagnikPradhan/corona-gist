@@ -30,7 +30,7 @@ def parse_data(current_data):
     confirmed_char_length = math.floor(total_chars / (ratio + 1))
     recovered_char_length = total_chars - confirmed_char_length
     string = "▓" * recovered_char_length + "░" * confirmed_char_length + \
-             "\n\n▓ Recovered: {} ░  Confirmed: {}".format(recovered_cases, confirmed_cases)
+             "\n\n▓ Recovered: {} ░  Confirmed: {}  And STAY THE FUCK HOME ❤️".format(recovered_cases, confirmed_cases)
     return string
 
 
