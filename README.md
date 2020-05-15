@@ -9,8 +9,17 @@
 <p align="center">Pin a gist to your profile which gives you latest updates about COVID-19 🦠</p>
 <p align="center"><a href="https://gist.github.com/SagnikPradhan/f17a826743eabec7a130460108d25e23"><img src="./Screenshot.PNG" alt="screenshot" /></a></p>
 
+<h3 align="center">Raise awareness about COVID-19</h3>
+
+<p align="center">
+The following couple of months have been hard and the situation is still worsening in many places. The only thing we can do right now is to <b>Stay the fuck at home!</b> So why not work on projects and do some self development!
+</p>
+
 <h3 align="center">Want it on your profile too?</h3>
 
-1. Fork the Repository
-2. Create a [Personal Access Token](https://github.com/settings/tokens) with `Create gists` permissions
-3. Add secret `GH_TOKEN` in your repository settings
+<p align="center"><b>1.</b> Fork the Repository<br>
+<b>2.</b> Create a <a href="https://github.com/settings/tokens">Personal Access Token</a> with <code>Create gists</code> permissions and note it down<br>
+<b>3.</b> Add token as the secret <code>GH_TOKEN</code> in your repository settings
+</p>
+
+<h3 align="center">Made with 💖 by Sagnik Pradhan</h3>
