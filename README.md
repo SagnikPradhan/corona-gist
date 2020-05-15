@@ -1,7 +1,7 @@
 <h1 align="center">corona-gist</h1>
 
 <p align="center">
-  <a href="https://github.com/SagnikPradhan/corona-gist/actions>"<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/sagnikpradhan/corona-gist/Update Job?style=for-the-badge"></a>
+  <a href="https://github.com/SagnikPradhan/corona-gist/actions"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/sagnikpradhan/corona-gist/Update Job?style=for-the-badge"></a>
   <img alt="GitHub" src="https://img.shields.io/github/license/sagnikpradhan/corona-gist?style=for-the-badge">
   <img alt="Fuck it! Ship it!" src="https://img.shields.io/badge/FUCK%20IT-SHIP%20IT-blueviolet?style=for-the-badge">
 </p>
