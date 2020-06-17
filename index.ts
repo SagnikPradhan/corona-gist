@@ -11,8 +11,7 @@ async function main(): Promise<void> {
 
   // Main code itself
   const data = await getData();
-  const footerText = "Stay Safe! Stay home! 💖";
-  const content = await formatData({ data, footerText });
+  const content = await formatData({ data });
   await publishGist({ content, gistId, username, accessToken });
 }
 
@@ -53,12 +52,10 @@ async function getData(): Promise<Data> {
  */
 async function formatData({
   data,
-  footerText = "",
   length = 60,
   blockChars = ["▓", "▒", "░"],
 }: {
   data: Data;
-  footerText?: string;
   length?: number;
   blockChars?: string[];
 }): Promise<string> {
@@ -95,7 +92,7 @@ async function formatData({
     .sort(() => (Math.floor(Math.random() * 2) === 1 ? -1 : 1));
 
   // Join the array and add text
-  return linesStr.join("\n") + "\n" + footerText;
+  return linesStr.join("\n");
 }
 
 /**
