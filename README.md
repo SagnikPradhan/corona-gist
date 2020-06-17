@@ -18,8 +18,9 @@ The following couple of months have been hard and the situation is still worseni
 <h3 align="center">Want it on your profile too?</h3>
 
 <p align="center"><b>1.</b> Fork the Repository<br>
-<b>2.</b> Create a <a href="https://github.com/settings/tokens">Personal Access Token</a> with <code>Create gists</code> permissions and note it down<br>
-<b>3.</b> Add token as the secret <code>GH_TOKEN</code> in your repository settings
+<b>2.</b> Edit <code>config.json</code> and add your details<br>
+<b>3.</b> Create a <a href="https://github.com/settings/tokens">Personal Access Token</a> with <code>Create gists</code> permissions and note it down<br>
+<b>4.</b> Add the token as the secret <code>GH_TOKEN</code> in your repository settings
 </p>
 
 <h3 align="center">Made with 💖 by Sagnik Pradhan</h3>
