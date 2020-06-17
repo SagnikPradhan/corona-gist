@@ -1,0 +1,11 @@
+{
+  "name": "corona-gist",
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.7",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "source-map-support": "^0.5.19"
+  }
+}
