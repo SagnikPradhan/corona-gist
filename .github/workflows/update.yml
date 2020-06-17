@@ -1,0 +1,17 @@
+name: Update Job
+
+on:
+  schedule:
+    - cron: '10 30 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn tsc && yarn node build
+        env: 
+          ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
