@@ -11,7 +11,7 @@ async function main(): Promise<void> {
 
   // Main code itself
   const data = await getData();
-  const footerText = "Stay home bud!";
+  const footerText = "Stay Safe! Stay home! 💖";
   const content = await formatData({ data, footerText });
   await publishGist({ content, gistId, username, accessToken });
 }
@@ -65,17 +65,18 @@ async function formatData({
   // Used to draw the graphs
   blockChars = blockChars.sort();
 
-  // Sorted Entries
-  const entries: [string, number][] = Object.entries(data).sort(
-    ([, val1], [, val2]) => val2 - val1
-  );
+  // Sort Entries
+  // Map them with abbreviated number string
+  const entries: [string, number, string][] = Object.entries(data)
+    .sort(([, val1], [, val2]) => val2 - val1)
+    .map(([lbl, val]) => [lbl, val, abbreviateNumber(val)]);
 
-  // Max label length and Max entries value
-  const maxLblLen =
-    entries.reduce(
-      (curLen, [lbl]) => (lbl.length > curLen ? lbl.length : curLen),
-      0
-    ) + 1;
+  // Max label length along with label, space and adbbreviated string
+  // Max entries value
+  const maxLblLen = entries.reduce((curLen, [lbl, , abbrv]) => {
+    const len = lbl.length + abbrv.length + 2;
+    return len > curLen ? len : curLen;
+  }, 0);
   const maxValue = entries[0][1];
 
   // Graphing space
@@ -84,15 +85,42 @@ async function formatData({
   // Convert entries into lines and randomise the order
   const linesStr = entries
     .map(
-      ([label, val], i) =>
+      ([label, val, abbrv], i) =>
         label +
-        " ".repeat(maxLblLen - label.length) +
+        " ".repeat(maxLblLen - (label.length + abbrv.length + 1)) +
+        abbrv +
+        " " +
         blockChars[i].repeat(Math.floor((val / maxValue) * graphSpace))
     )
     .sort(() => (Math.floor(Math.random() * 2) === 1 ? -1 : 1));
 
   // Join the array and add text
   return linesStr.join("\n") + "\n" + footerText;
+}
+
+/**
+ * Returns abbreviated string
+ * @param num - Number
+ */
+function abbreviateNumber(num: number) {
+  const abbreviations: [string, number][] = [
+    ["T", 12],
+    ["B", 9],
+    ["M", 6],
+    ["K", 3],
+  ];
+
+  for (const [abbrv, n] of abbreviations) {
+    // We raise divisor less power and divide again, to have a precision
+    const divisor = Math.pow(10, n - 1);
+    const abbrvNum = String(Math.round(num / divisor) / 10);
+    if (abbrvNum != "0")
+      return (
+        (abbrvNum.includes(".") ? abbrvNum : abbrvNum + ".0") + " " + abbrv
+      );
+  }
+
+  throw new Error("Too small number!");
 }
 
 /**
